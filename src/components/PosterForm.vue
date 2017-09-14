@@ -86,8 +86,8 @@
           this.authorsList = response.data.author;
         })
       },
-      resetForm(){
-        this.$refs['form'].resetFields();
+      resetForm(formname){
+        this.$refs[formname].resetFields();
       }
     },
     created() {

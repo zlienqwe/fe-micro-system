@@ -1,6 +1,6 @@
 <template>
     <div class="editpopup">
-        <el-dialog title="编辑博客" :visible.sync="editPopupVisible" :before-close="asdasdasdasd">
+        <el-dialog title="编辑博客" :visible.sync="editPopupVisible" :before-close="closePopup">
             <PosterForm v-if="editPopupVisible"></PosterForm>
         </el-dialog>
     </div>
@@ -15,7 +15,7 @@ import PosterForm from './PosterForm.vue'
       }
     },
     methods: {
-      asdasdasdasd(){
+      closePopup(){
         this.$store.commit('hideEditPopup');
         this.$store.commit('editPosterDataChange', {});
       }
