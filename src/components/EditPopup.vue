@@ -7,8 +7,6 @@
 </template>
 
 <script>
-//  import store from '../store/index'
-//  import EditPosterForm from './EditPosterForm.vue'
 import PosterForm from './PosterForm.vue'
   export default {
     name: 'editpopup',

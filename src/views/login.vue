@@ -24,7 +24,6 @@
 </template>
 
 <script>
-  import store from '../store/index'
 
   const md5Base64 = require('md5-base64');
 
@@ -55,7 +54,7 @@
                   message: '登录成功',
                   type: 'success'
                 });
-                store.commit('login');
+                this.$store.commit('login');
                 this.$router.replace({path: '/in/loginhomepage'})
               } else {
                 this.$message({

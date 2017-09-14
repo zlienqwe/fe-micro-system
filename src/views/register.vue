@@ -26,8 +26,6 @@
 </template>
 
 <script>
-  import store from '../store/index'
-
   const md5Base64 = require('md5-base64');
 
   export default {

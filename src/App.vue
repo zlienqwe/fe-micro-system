@@ -6,7 +6,6 @@
 
 <script>
 
-  import store from './store/index'
   import MainNav from './components/Navheader.vue'
   export default {
     name: 'app',
