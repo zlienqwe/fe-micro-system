@@ -1,13 +1,18 @@
 <template>
     <div class="detail">
         <BreadCrumb></BreadCrumb>
-        <h1>{{ poster_detail.title }}</h1>
-        <p>{{ poster_detail.content }}</p>
+        <el-card>
+            <h1>{{ poster_detail.title }}</h1>
+            <p>{{ poster_detail.content }}</p>
+            <p>{{ poster_detail.create_time | timefilter}}</p>
+        </el-card>
+        <CommentZone></CommentZone>
     </div>
 </template>
 
 <script>
     import BreadCrumb from '../components/BreadCrumb.vue'
+    import CommentZone from '../components/CommentZone.vue'
   export default {
     name: 'detail',
     data() {
@@ -38,9 +43,11 @@
     },
     created() {
       this.getCurrentPosterDetail(this.$route.params.poster_id);
+      this.$store.commit('changeCurrentPosterId', this.$route.params.poster_id)
     },
     components: {
-      BreadCrumb
+      BreadCrumb,
+      CommentZone
     },
   }
 </script>
@@ -49,5 +56,9 @@
 <style scoped>
     .detail{
         padding: 30px;
+    }
+
+    .el-card {
+        margin-top: 20px;
     }
 </style>

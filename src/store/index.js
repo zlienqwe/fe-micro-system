@@ -9,7 +9,9 @@ const store = new Vuex.Store({
     editPopupVisible : false,
     editPosterData: {},
     breadcrumb: [],
-    formForWhat: 'add'
+    currentPosterId: 0,
+    formForWhat: 'add',
+    currentPosterComment: []
   },
   mutations: {
     login (state){
@@ -32,7 +34,13 @@ const store = new Vuex.Store({
     },
     formForWhatChange(state, data){
       state.formForWhat = data;
-    }
+    },
+    changeCurrentPosterComment(state, data){
+      state.currentPosterComment = data;
+    },
+    changeCurrentPosterId(state, data){
+      state.currentPosterId = data;
+    },
   }
 })
 

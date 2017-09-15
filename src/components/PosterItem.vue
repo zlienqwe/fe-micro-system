@@ -1,15 +1,19 @@
 <template>
     <div class="posteritem">
         <el-card :body-style="{ padding: '0px' }">
-            <i class="el-icon-close icon" @click="deleteDetail()"></i>
-            <div style="padding: 14px;" @click="gotoDetail()">
+            <i class="el-icon-close icon" @click="deleteDetail"></i>
+            <div style="padding: 14px;" @click="editCurrent">
                 <h3>{{ posteritem.title }}</h3>
                 <div class="bottom clearfix">
                     <p>
                         {{ posteritem.content }}
                     </p>
                 </div>
+                <span>{{ posteritem.last_update_time | timefilter}}</span>
             </div>
+            <el-button type="primary" @click="showDetail">
+                <i class="el-icon-more"></i>
+            </el-button>
         </el-card>
     </div>
 </template>
@@ -26,10 +30,13 @@
       'posteritem'
     ],
     methods: {
-      gotoDetail(){
+      editCurrent(){
         this.$store.commit('showEditPopup');
         this.$store.commit('editPosterDataChange', this.posteritem);
         this.$store.commit('formForWhatChange', 'edit')
+      },
+      showDetail(){
+        this.$router.push({ path: `/poster/${this.posteritem.id}` })
       },
       deleteDetail(){
         this.$confirm('此操作将永久删除该微博, 是否继续?', '提示', {
@@ -68,7 +75,7 @@
 <style scoped>
     .posteritem{
         cursor: pointer;
-        height: 120px;
+        height: 100%;
         position: relative;
         padding: 10px;
         transition: all .3s ease-in-out;
@@ -100,16 +107,22 @@
 
     .posteritem .el-card h3{
         margin: 0;
+        height: 30px;
         overflow: hidden;
         text-overflow: ellipsis;
     }
     .posteritem .el-card p{
         overflow: hidden;
+        height: 45px;
         word-break: break-all;
         -webkit-box-orient: vertical;
         -moz-box-orient: block-axis;
         -webkit-line-clamp: 2;
         text-overflow: ellipsis;
         display: -webkit-box;
+    }
+
+    .el-button{
+        margin-bottom: 20px;
     }
 </style>

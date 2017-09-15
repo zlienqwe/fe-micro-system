@@ -19,6 +19,12 @@ Vue.component('icon', Icon)
 import router from './router/index'
 import store from './store/index'
 
+import {formatDate} from './filters/timeformat'
+Vue.filter('timefilter', function (value) {
+  // 返回处理后的值
+  return formatDate(value/1000, 'yyyy-MM-dd hh:mm:ss')
+})
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
