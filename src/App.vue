@@ -40,4 +40,9 @@
     text-align: center;
     color: #2c3e50;
   }
+
+  .navheader + *{
+    margin-top: 70px;
+    margin-bottom: 20px;
+  }
 </style>

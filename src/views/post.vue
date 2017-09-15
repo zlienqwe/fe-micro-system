@@ -64,7 +64,8 @@
     .loginpost {
         padding: 30px 100px;
         max-width: 500px;
-        margin: 0 auto;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .el-select {
